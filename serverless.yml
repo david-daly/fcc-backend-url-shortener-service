@@ -1,0 +1,27 @@
+service: fcc-url-shortener-microservice
+
+provider: 
+  name: aws
+  runtime: nodejs6.10
+  apiGateway:
+    restApiId: 17d9c8lez4
+    restApiRootResourceId: 84hk7bf6hd
+
+functions:
+  timestampMicroservice:
+    handler: src/app.handler
+    timeout: 10
+
+    events:
+      - http:
+          path: shorten/{url}
+          method: post
+          cors: true
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    port: 5002

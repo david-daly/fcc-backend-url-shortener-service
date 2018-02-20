@@ -18,6 +18,11 @@ functions:
           method: post
           cors: true
 
+      - http:
+          path: /{url}
+          method: get
+          cors: true
+
 plugins:
   - serverless-plugin-typescript
   - serverless-offline

@@ -14,7 +14,7 @@ functions:
 
     events:
       - http:
-          path: shorten/{url}
+          path: shorten
           method: post
           cors: true
 
